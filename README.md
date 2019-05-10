@@ -1,1 +1,2 @@
-this is for me to flex my solutions
+Submissions to DMOJ and WLMOJ.
+Will be updated periodically. 
