@@ -11,9 +11,9 @@ struct query {
   char c;
   int a, b;
 } q[MN];
-int N, bit[MN], id[MN], rating[MN];
+int N, bit[MN], id[MN], rating[MN], to_id[MN], from_id[MN];
 vector<int> x, r;
-unordered_map<int, int> to_id, from_id, from_rating;
+unordered_map<int, int> from_rating;
 
 void update(int x, int v) {
     for (; x < MN; x += x & -x)
@@ -51,16 +51,16 @@ int main() {
     }
     for (int i = 0; i < N; i++) {
         if (q[i].c == 'N') {
-            int cur = from_id[q[i].a];
-            id[cur] = from_rating[q[i].b];
-            rating[from_rating[q[i].b]] = cur;
+            int cur = from_id[q[i].a], rate = from_rating[q[i].b];
+            id[cur] = rate;
+            rating[rate] = cur;
             update(id[cur], 1);
             tot++;
         } else if (q[i].c == 'M') {
-            int cur = from_id[q[i].a];
+            int cur = from_id[q[i].a], rate = from_rating[q[i].b];
             update(id[cur], -1);
-            id[cur] = from_rating[q[i].b];
-            rating[from_rating[q[i].b]] = cur;
+            id[cur] = rate;
+            rating[rate] = cur;
             update(id[cur], 1);
         } else {
             int lo = 1, hi = r.size();
