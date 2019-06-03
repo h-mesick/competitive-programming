@@ -14,7 +14,7 @@ pii dp[MN][2];
 bool ins[MN];
 
 void tarjan(int u) {
-    disc[u] = low[u] = cnt++;
+    disc[u] = low[u] = ++cnt;
     st.push(u), ins[u] = true;
     for (int v : adj1[u]) {
         if (!disc[v]) {
