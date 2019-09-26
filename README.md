@@ -1,2 +1,5 @@
 Submissions to DMOJ and WLMOJ.
-Will be updated periodically. 
+
+https://dmoj.ca/user/potop
+
+https://mcpt.ca/user/ssheep
